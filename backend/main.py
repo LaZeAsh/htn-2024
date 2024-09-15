@@ -4,11 +4,14 @@ import os
 from dotenv import load_dotenv
 from sklearn.cluster import KMeans
 from sklearn.metrics import pairwise_distances_argmin_min
+from flask import Flask, jsonify
 
+app = Flask(__name__)
 load_dotenv()
 
 class Aura:
-    def __init__(self) -> None:
+    def __init__(self, prompt) -> None:
+        self.prompt = prompt
         self.positive_aura = []
         self.negative_aura = []
         self.co = cohere.Client(os.environ["COHERE"])
@@ -30,7 +33,7 @@ class Aura:
         return KMeans(n_clusters=10, n_init='auto').fit(embed)
     
     def embedding_comparison(self):
-        input_embed = np.array(self.co.embed(texts=["Aura game too strong"], input_type='classification').embeddings)
+        input_embed = np.array(self.co.embed(texts=[self.prompt], input_type='classification').embeddings)
         pos_aura_embed = self.get_positive_aura_embeddings()
         pos_aura_centroid = pos_aura_embed.cluster_centers_
         pos_aura_closest, pos_aura_distance = pairwise_distances_argmin_min(input_embed, pos_aura_centroid)
@@ -44,15 +47,16 @@ class Aura:
 
         # Calculating the aura points assigned to each person
         if pos_aura_distance > neg_aura_distance:
-            return self.aura_point_assignment(pos_aura_distance, neg_aura_distance)
-        elif neg_aura_distance < pos_aura_distance:
-            return self.aura_point_assignment(neg_aura_distance, pos_aura_distance)
+            return int((pos_aura_distance / neg_aura_distance) * 50)
+        elif neg_aura_distance > pos_aura_distance:
+            return int((neg_aura_distance / pos_aura_distance) * -50)
         else:
             return 0
 
-    def aura_point_assignment(self, greater_distance, smaller_distance):
-        pass
+@app.route("/", methods=['POST'])
+def auralicious(prompt):
+    aura = Aura(prompt)
+    return aura.embedding_comparison()
 
 if __name__ == '__main__':
-    aura = Aura()
-    aura.embedding_comparison()
+    app.run()
