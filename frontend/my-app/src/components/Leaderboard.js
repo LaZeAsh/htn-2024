@@ -3,7 +3,7 @@ import React from "react";
 const Leaderboard = () => {
   return (
     <div className="leaderboard">
-      <h2>LEADERBOARD</h2>
+      <h2>LEADERBOARD 🏆</h2>
       <div className="leaderboard-items">
         <div className="leaderboard-item-2">
           <h3 className="rank">2nd</h3>

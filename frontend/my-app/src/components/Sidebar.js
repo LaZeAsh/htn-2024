@@ -8,6 +8,8 @@ const Sidebar = () => {
       <SidebarComponent />
       <SidebarComponent />
       <SidebarComponent />
+      <SidebarComponent />
+      <SidebarComponent />
     </div>
   );
 };
