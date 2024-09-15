@@ -1,6 +1,7 @@
 import React from "react";
 import Leaderboard from "./Leaderboard";
 import Sidebar from "./Sidebar";
+import SiriComponent from "./SiriComponent";
 
 const Hero = () => {
   return (

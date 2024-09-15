@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-
 class Aura:
     def __init__(self) -> None:
         self.positive_aura = []
