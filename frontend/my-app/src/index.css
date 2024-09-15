@@ -7,7 +7,8 @@
 }
 
 html {
-  background-color: hsl(234, 32%, 12%);
+  background-color: black;
+  font-family: 'Arial', sans-serif;
 }
 
 .main {
@@ -210,7 +211,7 @@ html {
 .mobile-container {
   height: 80vh;
   width: calc(80vh * 350 / 667);
-  border: 1px solid #ccc;
+  border: 1px solid #272c48;
   border-radius: 30px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   overflow: hidden; 
@@ -223,12 +224,73 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   width: 100%;
   height: 100%;
   overflow-y: auto;
 }
 
 .siri-component-image {
-  width: 28vh;
+  width: 32vh;
   max-width: 100%;
+  cursor: pointer;
+}
+
+.record-title {
+  font-size: 2.5vh;
+  line-height: 4.4vh;
+  color: white;
+  text-align: center;
+  margin-top: auto;
+  font-weight: 200;
+}
+
+.record-score {
+  font-size: 2.5vh;
+  color: white;
+}
+
+.record-bottom-text {
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: 5vh;
+}
+
+.record-leaderboard-text {
+  font-size: 2.2vh;
+  color: white;
+  margin-bottom: 0.5vh;
+  font-weight: bold;
+}
+
+.record-website-text {
+  font-size: 1.6vh;
+  color: white;
+}
+
+.user-info {
+  width: 100%;
+  display: flex;
+}
+
+.user-info img {
+  margin-right: auto;
+  margin-left: 5vh;
+  width: 100%;
+  width: 3.5vh;
+  height: 3.5vh;
+  margin-top: 4vh;
+  margin-bottom: -4vh;
+}
+
+.user-info p {
+  margin-left: auto;
+  color: white;
+  margin-right: 5vh;
+  font-size: 1.8vh;
+  margin-top: 4vh;
+  padding: 0.2vh;
+  border: 2px solid (234, 32%, 12%);
+  background-color: transparent;
+  cursor: pointer;
 }
