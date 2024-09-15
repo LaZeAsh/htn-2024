@@ -54,7 +54,7 @@ def analyze_transcript():
     try:
         data = request.json
         transcript = data['transcript']
-        print(transcript)
+        print("Full Transcript: " + transcript)
         
         words = transcript.split()
         chunks = [words[i:i + 25] for i in range(0, len(words), 25)]
@@ -63,8 +63,13 @@ def analyze_transcript():
         aura = Aura()
         score = 0
 
-        for sentence in sentences:
+        for idx, sentence in enumerate(sentences):
+            
             pos_sim, neg_sim = aura.embedding_comparison(sentence)
+
+            print("Sentence #" + (str)(idx+1) + ":")
+            print("Positive Cosine Similarity: " + str(pos_sim))
+            print("Negative Cosine Similarity: " + str(neg_sim))
 
             if pos_sim > neg_sim:
                 score += 1
