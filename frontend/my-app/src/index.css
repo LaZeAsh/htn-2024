@@ -210,7 +210,7 @@ html {
 
 .mobile-container {
   height: 80vh;
-  width: calc(80vh * 350 / 667);
+  width: calc(80vh * 370 / 667);
   border: 1px solid #272c48;
   border-radius: 30px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -259,13 +259,14 @@ html {
 .record-leaderboard-text {
   font-size: 2.2vh;
   color: white;
-  margin-bottom: 0.5vh;
+  margin-bottom: 0.9vh;
   font-weight: bold;
 }
 
 .record-website-text {
-  font-size: 1.6vh;
+  font-size: 1.9vh;
   color: white;
+  font-weight: 100;
 }
 
 .user-info {
@@ -277,8 +278,8 @@ html {
   margin-right: auto;
   margin-left: 5vh;
   width: 100%;
-  width: 3.5vh;
-  height: 3.5vh;
+  width: 4vh;
+  height: 4vh;
   margin-top: 4vh;
   margin-bottom: -4vh;
 }

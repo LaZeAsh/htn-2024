@@ -1,11 +1,9 @@
-import React, { useState } from "react";
-import SiriComponent from "./SiriComponent";
+import React from "react";
 
-const RecordingPage = () => {
-  const [currScore, setCurrScore] = useState(0);
+const Login = () => {
 
   return (
-    <div className="mobile-container">
+<div className="mobile-container">
       <div className="mobile-content">
         <div className="user-info">
           <img alt="profile-picture" src="images/cropped_headshot.png" />
@@ -14,18 +12,15 @@ const RecordingPage = () => {
 
         <h1 className="record-title">Track your <br /> <span style={{fontWeight: "bold", fontSize: "3.5vh"}}>🔮 AURA! 🔮</span></h1>
 
-        <SiriComponent onScoreUpdate={(score) => setCurrScore(currScore + score)} />
-
         <p className="record-score"><span style={{fontWeight: "bold"}}>Score:</span> {currScore}</p>
 
         <div className="record-bottom-text">
-          <p className="record-leaderboard-text">Leaderboard Coming Soon</p>
+          <p className="record-leaderboard-text">LEADERBOARD:</p>
           <p className="record-website-text">www.traura.ai</p>
         </div>
       </div>
     </div>
-    
   );
 };
 
-export default RecordingPage;
+export default Login;
